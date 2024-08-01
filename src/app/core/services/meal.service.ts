@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CategoryResponse } from 'src/app/shared/interfaces/category.model';
+import { CategoriesResponse } from 'src/app/shared/interfaces/category.model';
+import { MealsResponse } from 'src/app/shared/interfaces/meal.model';
 import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
@@ -9,7 +10,8 @@ import { environment } from 'src/environments/environment.prod';
 export class MealService {
 
   private mealsSearchUri = 'search.php';
-  private mealsCategoryUri = 'categories.php';
+  private mealCategoriesUri = 'categories.php';
+  private mealsByCategoryUri = 'filter.php';
 
 
   constructor(private http: HttpClient) { }
@@ -19,7 +21,15 @@ export class MealService {
 
   }
 
-  getMealsCategories() {
-    return this.http.get<CategoryResponse>(`${environment.apiUrl}/${this.mealsCategoryUri}`);
+  getMealCategories() {
+    return this.http.get<CategoriesResponse>(`${environment.apiUrl}/${this.mealCategoriesUri}`);
+  }
+
+  getMealsByCategory(categoryName: string) {
+    let params = new HttpParams();
+    if(categoryName) {
+      params = params.append('c', categoryName);
+    }
+    return this.http.get<MealsResponse>(`${environment.apiUrl}/${this.mealsByCategoryUri}`, { params });
   }
 }

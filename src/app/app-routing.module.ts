@@ -7,6 +7,14 @@ const routes: Routes = [
     redirectTo: 'index',
     pathMatch: 'full'
   },
+  // {
+  //   path: '**',
+  //   redirectTo: 'not-found',
+  // },
+  {
+    path: 'not-found',
+    loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule)
+  },
   {
     path: 'index',
     loadChildren: () => import('./pages/index/index.module').then( m => m.IndexPageModule)
@@ -16,12 +24,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/details/details.module').then( m => m.DetailsPageModule)
   },
   {
-    path: 'not-found',
-    loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule)
-  },
-  {
-    path: '**',
-    redirectTo: 'not-found',
+    path: 'category/:categoryName',
+    loadChildren: () => import('./pages/category/category.module').then( m => m.CategoryPageModule)
   },
 ];
 

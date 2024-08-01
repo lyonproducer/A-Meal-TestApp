@@ -6,6 +6,6 @@ export interface Category {
 }
 
 
-export interface CategoryResponse {
+export interface CategoriesResponse {
   categories: Category[]
 }

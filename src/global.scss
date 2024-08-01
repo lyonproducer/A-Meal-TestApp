@@ -45,3 +45,34 @@ ion-content {
 .text-white {
   color: white !important;
 }
+
+.d-flex {
+  display: flex;
+}
+
+.new-card {
+  width: 100%;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  --background: #d57d1f;
+
+  ion-label {
+    margin-left: 25px;
+    h4 {
+      font-size: large;
+      color: var(--ion-color-medium);
+    }
+  }
+  img {
+    height: 80px;
+    object-fit: cover;
+  }
+  ion-icon {
+    color: var(--ion-color-medium);
+    font-size: 22px;
+    font-weight: bold;
+    position: absolute;
+    right: 10px;
+  }
+}
