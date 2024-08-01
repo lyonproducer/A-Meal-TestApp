@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'www.themealdb.com/api/json/v1/1'
+  apiUrl: 'https://www.themealdb.com/api/json/v1/1'
 };
 
 /*

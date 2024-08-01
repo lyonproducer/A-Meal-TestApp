@@ -19,7 +19,7 @@ export class MealService {
 
   }
 
-  getMealsCategies() {
+  getMealsCategories() {
     return this.http.get<CategoryResponse>(`${environment.apiUrl}/${this.mealsCategoryUri}`);
   }
 }

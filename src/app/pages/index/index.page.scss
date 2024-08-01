@@ -11,3 +11,31 @@ ion-item {
     --highlight-color: var(--ion-color-dark);
   }
 }
+
+.new-card {
+  width: 100%;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  --background: #d57d1f;
+
+  ion-label {
+    margin-left: 25px;
+    h4 {
+      font-size: large;
+      color: var(--ion-color-medium);
+    }
+  }
+  img {
+    width: 110px;
+    height: 80px;
+    object-fit: cover;
+  }
+  ion-icon {
+    color: var(--ion-color-medium);
+    font-size: 22px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+  }
+}
