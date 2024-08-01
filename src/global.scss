@@ -58,13 +58,16 @@ ion-content {
   --background: #d57d1f;
 
   ion-label {
+    width: 100%;
     margin-left: 25px;
     h4 {
       font-size: large;
       color: var(--ion-color-medium);
+      width: 80%;
     }
   }
   img {
+    width: auto;
     height: 80px;
     object-fit: cover;
   }
@@ -73,6 +76,6 @@ ion-content {
     font-size: 22px;
     font-weight: bold;
     position: absolute;
-    right: 10px;
+    right: 20px;
   }
 }
