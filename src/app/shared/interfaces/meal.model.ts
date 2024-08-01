@@ -1,14 +1,8 @@
-export interface Meal {
-  strMeal: string
-  strMealThumb: string
-  idMeal: string
-}
-
 export interface MealsResponse {
   meals: Meal[]
 }
 
-export interface MealDetail {
+export interface Meal {
   idMeal: string
   strMeal: string
   strDrinkAlternate: any

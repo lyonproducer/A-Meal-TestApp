@@ -18,7 +18,11 @@ export class MealService {
 
 
   getMealsByName(name: string)  {
-
+    let params = new HttpParams();
+    if(name) {
+      params = params.append('s', name);
+    }
+    return this.http.get<MealsResponse>(`${environment.apiUrl}/${this.mealsSearchUri}`, { params });
   }
 
   getMealCategories() {

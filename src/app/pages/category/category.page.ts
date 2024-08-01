@@ -47,7 +47,7 @@ export class CategoryPage implements OnInit {
   }
 
   goToMealDetail(meal: Meal) {
-    this.router.navigate(['meal', meal.strMeal]);
+    this.router.navigate(['details', meal.strMeal]);
   }
 
 }

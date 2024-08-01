@@ -1,13 +1,32 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>details</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header-back [title]="mealName"></app-header-back>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">details</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+
+  @if(isLoadingMealDetail) {
+    <div class="d-flex ion-justify-content-center ion-padding">
+      <ion-spinner color="warning"></ion-spinner>
+    </div>
+  }
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        @if (meal) {
+            <ion-card
+            class="d-flex new-card bg-black"
+          >
+            <img  [src]="meal.strMealThumb" />
+            <ion-label>
+              <h4 class="font-bold ion-text-dark"><b>{{meal.strMeal}}</b></h4>
+              <p>{{ meal.strCategory }}</p>
+            </ion-label>
+          </ion-card>
+        }
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
 </ion-content>
