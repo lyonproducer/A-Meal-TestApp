@@ -1,0 +1,13 @@
+ion-item {
+  width: 100%;
+  --border-radius: 8px;
+  --border-width: 1px;
+  --border-style: solid;
+  --border-color: var(--ion-color-medium);
+  margin-bottom: 15px;
+  --inner-border-width: 0px 0px 0px 0px;
+
+  ion-input {
+    --highlight-color: var(--ion-color-dark);
+  }
+}

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start" color="light">
+      <ion-button (click)="goBack()" color="light">
+        <ion-icon color="light" name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    @if(!title) {
+      <ion-title>
+        <img src="assets/images/logo-small.png" width="210px" alt="">
+      </ion-title>
+    } @else {
+      <ion-title class="text-white">
+        {{title}}
+      </ion-title>
+    }
+
+    <ion-buttons slot="primary">
+      <!-- <ion-button>
+        <ion-icon color="light" name="arrow-redo-sharp"></ion-icon>
+      </ion-button> -->
+    </ion-buttons> 
+   
+  </ion-toolbar>
+</ion-header>
