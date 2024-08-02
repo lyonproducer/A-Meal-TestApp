@@ -14,11 +14,9 @@ describe('IndexPage', () => {
   let submitEl: DebugElement;
 
   beforeEach(() => {
-
     TestBed.configureTestingModule({
       providers: [importProvidersFrom(HttpClientModule), Storage]
-    })
-
+    });
     fixture = TestBed.createComponent(IndexPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
