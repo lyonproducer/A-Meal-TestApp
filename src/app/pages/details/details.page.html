@@ -1,4 +1,4 @@
-<app-header-back [title]="mealName"></app-header-back>
+<app-header-back [title]="meal ? meal.strMeal: 'Loading...'"></app-header-back>
 
 <ion-content class="ion-padding">
 
@@ -23,7 +23,7 @@
             </ion-label>
           </ion-card>
 
-          <ion-accordion-group >
+          <ion-accordion-group value="intructions">
             <ion-accordion value="intructions" class="ion-margin-top">
 
               <ion-item slot="header" color="warning">

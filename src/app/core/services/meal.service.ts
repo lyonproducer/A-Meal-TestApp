@@ -12,10 +12,19 @@ export class MealService {
   private mealsSearchUri = 'search.php';
   private mealCategoriesUri = 'categories.php';
   private mealsByCategoryUri = 'filter.php';
+  private mealsByIdUri = 'lookup.php';
 
 
   constructor(private http: HttpClient) { }
 
+
+  getMealsById(id: string)  {
+    let params = new HttpParams();
+    if(id) {
+      params = params.append('i', id);
+    }
+    return this.http.get<MealsResponse>(`${environment.apiUrl}/${this.mealsByIdUri}`, { params });
+  }
 
   getMealsByName(name: string)  {
     let params = new HttpParams();

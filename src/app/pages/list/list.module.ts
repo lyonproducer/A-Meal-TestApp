@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CategoryPageRoutingModule } from './category-routing.module';
+import { ListPageRoutingModule } from './list-routing.module';
 
-import { CategoryPage } from './category.page';
+import { ListPage } from './list.page';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
 
 @NgModule({
@@ -14,9 +14,9 @@ import { ComponentsModule } from 'src/app/shared/components/components.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    CategoryPageRoutingModule,
+    ListPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [CategoryPage]
+  declarations: [ListPage]
 })
-export class CategoryPageModule {}
+export class ListPageModule {}

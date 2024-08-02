@@ -42,18 +42,17 @@ export class IndexPage implements OnInit {
     })
   }
 
-  goToMealDetail(category: Category) {
-    this.router.navigate(['category', category.strCategory]);
+  goToMealsByCategory(category: Category) {
+    this.router.navigate(['list', 'CATEGORY', category.strCategory]);
   }
 
   async handleSearch() {
     await this.saveToHistory();
-    await this.router.navigate(['details', this.search]);
+    await this.router.navigate(['list', 'SEARCH', this.search]);
   }
 
   async saveToHistory() {
     let actualHistory: History[] = await this.storage.get('histories');
-    console.log(actualHistory);
     
     if(!actualHistory) {
       actualHistory = [];

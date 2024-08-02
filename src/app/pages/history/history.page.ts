@@ -32,6 +32,6 @@ export class HistoryPage implements OnInit {
   }
 
   goMealDetail(history: History) {
-    this.router.navigate(['details', history.searchValue]);
+    this.router.navigate(['list', 'SEARCH', history.searchValue]);
   }
 }

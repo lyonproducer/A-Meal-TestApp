@@ -7,29 +7,21 @@ const routes: Routes = [
     redirectTo: 'index',
     pathMatch: 'full'
   },
-  // {
-  //   path: '**',
-  //   redirectTo: 'not-found',
-  // },
-  {
-    path: 'not-found',
-    loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule)
-  },
   {
     path: 'index',
     loadChildren: () => import('./pages/index/index.module').then( m => m.IndexPageModule)
   },
   {
-    path: 'details/:mealName',
+    path: 'details/:mealId',
     loadChildren: () => import('./pages/details/details.module').then( m => m.DetailsPageModule)
-  },
-  {
-    path: 'category/:categoryName',
-    loadChildren: () => import('./pages/category/category.module').then( m => m.CategoryPageModule)
   },
   {
     path: 'history',
     loadChildren: () => import('./pages/history/history.module').then( m => m.HistoryPageModule)
+  },
+  {
+    path: 'list/:type/:name',
+    loadChildren: () => import('./pages/list/list.module').then( m => m.ListPageModule)
   },
 ];
 

@@ -10,7 +10,7 @@ import { Meal, MealsResponse } from 'src/app/shared/interfaces/meal.model';
 })
 export class DetailsPage implements OnInit {
 
-  mealName = '';
+  mealId = '';
   isLoadingMealDetail = false;
   meal?: Meal;
   tags: string[] = [];
@@ -23,9 +23,8 @@ export class DetailsPage implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      if(params['mealName']){
-        console.log(params) //log the entire params object
-        this.mealName=params['mealName'];
+      if(params['mealId']){
+        this.mealId = params['mealId'];
         this.getMeal();
       }
     });
@@ -33,7 +32,7 @@ export class DetailsPage implements OnInit {
 
   getMeal() {
     this.isLoadingMealDetail = true;
-    this.mealService.getMealsByName(this.mealName).subscribe({
+    this.mealService.getMealsById(this.mealId).subscribe({
       next: (res: MealsResponse) => {
         this.isLoadingMealDetail = false;
         if(res?.meals) {
