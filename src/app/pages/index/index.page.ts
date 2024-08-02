@@ -49,6 +49,7 @@ export class IndexPage implements OnInit {
   async handleSearch() {
     await this.saveToHistory();
     await this.router.navigate(['list', 'SEARCH', this.search]);
+    this.search = '';
   }
 
   async saveToHistory() {

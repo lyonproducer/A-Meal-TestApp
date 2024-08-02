@@ -43,7 +43,9 @@ export class ListPage implements OnInit {
     this.isLoadingMeals = true;
     this.mealService.getMealsByCategory(this.name).subscribe({
       next: (res: MealsResponse) => {
-        this.meals = res.meals;
+        if(res.meals) {
+          this.meals = res.meals;
+        }
         this.isLoadingMeals = false;
       },
       error: (e)=> {
@@ -56,7 +58,9 @@ export class ListPage implements OnInit {
     this.isLoadingMeals = true;
     this.mealService.getMealsByName(this.name).subscribe({
       next: (res: MealsResponse) => {
-        this.meals = res.meals;
+        if(res.meals) {
+          this.meals = res.meals;
+        }
         this.isLoadingMeals = false;
       },
       error: (e)=> {

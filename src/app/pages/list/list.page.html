@@ -28,6 +28,13 @@
         </ion-col>
       }
 
+      @if (meals.length === 0 && !isLoadingMeals) {
+        <ion-col size="12">
+          <p class="ion-text-center text-white">No results found, <a routerLink="/index">go index</a></p>
+        </ion-col>
+        
+      }
+
     </ion-row>
   </ion-grid>
 
