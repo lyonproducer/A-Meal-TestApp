@@ -30,18 +30,14 @@ describe('IndexPage', () => {
   });
 
   it('should be search button disabled if input is void', () => {
-
     component.search = '';
     fixture.detectChanges();
-
     expect(submitEl.nativeElement.querySelector('ion-button').disabled).toBeTruthy();
   });
 
   it('should be search button activated if input has string length more than one', () => {
-
     component.search = 'Big Mac';
     fixture.detectChanges();
-
     expect(submitEl.nativeElement.querySelector('ion-button').disabled).toBeFalsy();
   });
 });
