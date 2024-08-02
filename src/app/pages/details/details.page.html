@@ -48,7 +48,7 @@
               </ion-item>
 
               <div class="ion-padding ion-padding-none-top" slot="content">
-                @for (ingredient of ingredients; track $index) {
+                @for (ingredient of ingredients; track ingredient) {
                   <ion-item lines="none" color="yellow">
                     <ion-label slot="start">
                       {{ ingredient.name }}
@@ -69,7 +69,7 @@
 
               <h2><b>Tags</b></h2>
 
-              @for (item of tags; track $index) {
+              @for (item of tags; track item) {
                 <ion-badge color="secondary" class="ion-margin-end">
                   {{item}}
                 </ion-badge>
@@ -82,7 +82,7 @@
           
 
         } @if (!meal && !isLoadingMealDetail) {
-          <p class="ion-text-center text-white">No results found., <a routerLink="/index">go index</a></p>
+          <p class="ion-text-center text-warning">No results found., <a routerLink="/index">go index</a></p>
         }
       </ion-col>
     </ion-row>
