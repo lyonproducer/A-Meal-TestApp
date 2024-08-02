@@ -12,7 +12,7 @@ export class DetailsPage implements OnInit {
 
   mealName = '';
   isLoadingMealDetail = false;
-  meal!: Meal;
+  meal?: Meal;
   tags: string[] = [];
   ingredients: any[] = [];
 
@@ -35,18 +35,17 @@ export class DetailsPage implements OnInit {
     this.isLoadingMealDetail = true;
     this.mealService.getMealsByName(this.mealName).subscribe({
       next: (res: MealsResponse) => {
-        this.meal = res.meals[0];
-
-
-        this.tags = this.meal?.strTags?.split(',') ?? [];
         this.isLoadingMealDetail = false;
-
-        for (let index = 1; index <= 20; index++) {
-          if(this.meal[`strIngredient${index}`  as keyof Meal]){
-            this.ingredients.push({
-              'name': this.meal[`strIngredient${index}`  as keyof Meal],
-              'measure': this.meal[`strMeasure${index}` as keyof Meal]
-            });
+        if(res?.meals) {
+          this.meal = res.meals[0];
+          this.tags = this.meal?.strTags?.split(',') ?? [];
+          for (let index = 1; index <= 20; index++) {
+            if(this.meal[`strIngredient${index}`  as keyof Meal]){
+              this.ingredients.push({
+                'name': this.meal[`strIngredient${index}`  as keyof Meal],
+                'measure': this.meal[`strMeasure${index}` as keyof Meal]
+              });
+            }
           }
         }
       },

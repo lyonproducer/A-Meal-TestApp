@@ -24,3 +24,10 @@ ion-accordion {
 .ion-padding-none-top {
   padding-top: 0px;
 }
+
+.new-card {
+  box-shadow: none;
+  border-bottom: solid 1px var(--ion-color-dark);
+  padding-bottom: 10px;
+  border-radius: 0px !important;
+}

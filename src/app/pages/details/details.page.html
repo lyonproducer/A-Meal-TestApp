@@ -81,6 +81,8 @@
           </ion-card>
           
 
+        } @if (!meal && !isLoadingMealDetail) {
+          <p class="ion-text-center text-white">No results found., <a routerLink="/index">go index</a></p>
         }
       </ion-col>
     </ion-row>

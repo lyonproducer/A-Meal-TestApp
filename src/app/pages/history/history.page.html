@@ -1,0 +1,37 @@
+<app-header-back title="History"></app-header-back>
+
+<ion-content class="ion-padding">
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        @for (history of histories; track history) {
+          <ion-item color="warning" (click)="goMealDetail(history)">
+            <ion-label>
+              <h2>{{history.searchValue}}</h2>
+              <p>{{history.date | date}}</p>
+            </ion-label>
+
+            <ion-icon slot="end" name="caret-forward-outline" color="dark"></ion-icon>
+          </ion-item>
+        }  @empty {
+          <p class="text-white ion-text-center"> There are no items available. </p>
+         } 
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="dark">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button expand="full" color="warning" (click)="clearHistory()" [disabled]="histories.length === 0">Clear History</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+
+</ion-footer>

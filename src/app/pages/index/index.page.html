@@ -4,8 +4,6 @@
 
   <div class="search-container d-flex">
 
-
-
     <ion-grid>
       <ion-row>
         <ion-col size="12">
@@ -20,20 +18,17 @@
                   debounce="500"
                   [(ngModel)]="search"
                 ></ion-input>
-                <ion-button mode="ios" color="warning">
+                <ion-button mode="ios" color="warning" (click)="handleSearch()" [disabled]="search.length === 0">
                   <ion-icon name="search-outline" color="dark"></ion-icon>
                 </ion-button>
               </ion-item>              
             </ion-card-content>
           </ion-card>
-
         </ion-col>
       </ion-row>
   
       <ion-row>
-  
         <ion-col size="12" class="ion-margin-top">
-          
           <ion-accordion-group>
             <ion-accordion value="first">
               <ion-item slot="header" color="warning">
@@ -64,19 +59,12 @@
                     </ion-card>
                   </ion-col>
                 }
-
               </div>
             </ion-accordion>
           </ion-accordion-group>
         </ion-col>
-
       </ion-row>
     </ion-grid>
-
-
-
-
-
   </div>
 
 </ion-content>
