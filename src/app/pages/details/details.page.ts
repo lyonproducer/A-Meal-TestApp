@@ -13,6 +13,8 @@ export class DetailsPage implements OnInit {
   mealName = '';
   isLoadingMealDetail = false;
   meal!: Meal;
+  tags: string[] = [];
+  ingredients: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -23,11 +25,8 @@ export class DetailsPage implements OnInit {
     this.route.params.subscribe(params => {
       if(params['mealName']){
         console.log(params) //log the entire params object
-        console.log(params['mealName']) //log the value of id
         this.mealName=params['mealName'];
-        setTimeout(() => {
-          this.getMeal();
-        }, 500);
+        this.getMeal();
       }
     });
   }
@@ -37,8 +36,19 @@ export class DetailsPage implements OnInit {
     this.mealService.getMealsByName(this.mealName).subscribe({
       next: (res: MealsResponse) => {
         this.meal = res.meals[0];
+
+
+        this.tags = this.meal?.strTags?.split(',') ?? [];
         this.isLoadingMealDetail = false;
-        console.log('res ', this.meal);
+
+        for (let index = 1; index <= 20; index++) {
+          if(this.meal[`strIngredient${index}`  as keyof Meal]){
+            this.ingredients.push({
+              'name': this.meal[`strIngredient${index}`  as keyof Meal],
+              'measure': this.meal[`strMeasure${index}` as keyof Meal]
+            });
+          }
+        }
       },
       error: (e)=> {
         this.isLoadingMealDetail = false;

@@ -23,12 +23,10 @@ export class CategoryPage implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       if(params['categoryName']){
-        console.log(params) //log the entire params object
-        console.log(params['categoryName']) //log the value of id
+        console.log(params) //log the entire params objectlog the value of id
         this.categoryName=params['categoryName'];
-        setTimeout(() => {
-          this.getMealsByCategory();
-        }, 500);
+        this.getMealsByCategory();
+
       }
     });
   }
